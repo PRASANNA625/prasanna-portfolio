@@ -32,6 +32,7 @@ export function Achievements() {
             eyebrow="Recognition"
             title="Achievements"
             description="Measurable impact and recognition earned across my Power Platform engagements."
+            className="mb-8"
           />
         </Reveal>
 
@@ -40,7 +41,7 @@ export function Achievements() {
             <Reveal
               key={label}
               delay={i * 80}
-              className="rounded-2xl border border-border bg-surface p-6 shadow-soft hover:-translate-y-1 hover:shadow-glow"
+              className="h-full rounded-2xl border border-border bg-surface p-6 shadow-soft hover:-translate-y-1 hover:shadow-glow"
             >
               <p className="text-4xl font-semibold tracking-tight text-primary">
                 {value}
@@ -50,17 +51,17 @@ export function Achievements() {
           ))}
         </div>
 
-        <div className="mt-6 grid gap-6 sm:grid-cols-2">
+        <div className="mt-5 grid max-w-2xl gap-4 sm:grid-cols-2">
           {awards.map(({ title, detail, org }, i) => (
             <Reveal
               key={title}
               delay={i * 80}
-              className="flex items-start gap-4 rounded-2xl border border-border bg-surface p-6 shadow-soft hover:-translate-y-1 hover:shadow-glow"
+              className="flex h-full items-center gap-3 rounded-2xl border border-border bg-surface p-5 shadow-soft hover:-translate-y-1 hover:shadow-glow"
             >
               <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
                 <Award className="h-5 w-5" aria-hidden="true" />
               </div>
-              <div>
+              <div className="min-w-0">
                 <h3 className="text-base font-semibold tracking-tight">
                   {title}
                 </h3>
