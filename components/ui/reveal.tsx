@@ -37,7 +37,9 @@ export function Reveal({ children, delay = 0, className }: RevealProps) {
       style={delay ? { transitionDelay: `${delay}ms` } : undefined}
       className={cn(
         "transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]",
-        visible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0",
+        visible
+          ? "translate-y-0 scale-100 opacity-100 blur-none"
+          : "translate-y-16 scale-95 opacity-0 blur-sm",
         className,
       )}
     >

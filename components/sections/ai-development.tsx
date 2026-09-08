@@ -50,7 +50,7 @@ export function AiDevelopment() {
 
           <Reveal
             delay={150}
-            className="rounded-2xl border border-border bg-surface p-8 shadow-soft"
+            className="rounded-2xl border border-border bg-surface p-8 shadow-soft hover:-translate-y-1 hover:shadow-glow"
           >
             <p className="text-sm font-medium text-foreground">
               How I use it
