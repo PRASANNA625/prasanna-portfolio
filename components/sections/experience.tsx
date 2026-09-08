@@ -109,7 +109,7 @@ export function Experience() {
                 )}
 
                 {item.award && (
-                  <div className="mt-4 inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3 py-1.5 text-sm text-foreground shadow-soft">
+                  <div className="mt-4 inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3 py-1.5 text-sm text-foreground shadow-soft transition-shadow hover:shadow-glow">
                     <Award
                       className="h-4 w-4 text-accent"
                       aria-hidden="true"

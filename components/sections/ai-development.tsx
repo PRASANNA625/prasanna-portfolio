@@ -56,13 +56,12 @@ export function AiDevelopment() {
               How I use it
             </p>
 
-            <ul className="mt-6 space-y-5 border-t border-border pt-6">
+            <ul className="mt-6 space-y-4 border-t border-border pt-6">
               {workflow.map(({ icon: Icon, label }) => (
-                <li key={label} className="flex items-start gap-3">
-                  <Icon
-                    className="mt-0.5 h-5 w-5 shrink-0 text-accent"
-                    aria-hidden="true"
-                  />
+                <li key={label} className="flex items-center gap-3">
+                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-primary/30 bg-primary/10 text-primary shadow-[0_0_16px_-6px_var(--primary)]">
+                    <Icon className="h-4 w-4" aria-hidden="true" />
+                  </div>
                   <span className="text-sm text-foreground sm:text-base">
                     {label}
                   </span>
