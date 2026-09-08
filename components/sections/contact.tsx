@@ -1,6 +1,7 @@
 import { Download, Mail, MapPin, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
+import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { siteConfig } from "@/lib/site-config";
 
@@ -29,14 +30,19 @@ export function Contact() {
   return (
     <section id="contact" className="scroll-mt-16 py-24 sm:py-32">
       <Container>
-        <SectionHeading
-          eyebrow="Get In Touch"
-          title="Contact"
-          description="Open to Power Platform opportunities and conversations about modern, AI-assisted web development."
-          align="center"
-        />
+        <Reveal>
+          <SectionHeading
+            eyebrow="Get In Touch"
+            title="Contact"
+            description="Open to Power Platform opportunities and conversations about modern, AI-assisted web development."
+            align="center"
+          />
+        </Reveal>
 
-        <div className="mx-auto max-w-2xl rounded-2xl border border-border bg-surface p-8 shadow-soft sm:p-10">
+        <Reveal
+          delay={100}
+          className="mx-auto max-w-2xl rounded-2xl border border-border bg-surface p-8 shadow-soft sm:p-10"
+        >
           <ul className="space-y-5">
             {contactMethods.map(({ icon: Icon, label, value, href }) => (
               <li key={label} className="flex items-center gap-4">
@@ -77,7 +83,7 @@ export function Contact() {
               Download Resume
             </Button>
           </div>
-        </div>
+        </Reveal>
       </Container>
     </section>
   );

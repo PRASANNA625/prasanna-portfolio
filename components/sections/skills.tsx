@@ -5,6 +5,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import { Container } from "@/components/ui/container";
+import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
 
 const skillGroups = [
@@ -44,16 +45,19 @@ export function Skills() {
   return (
     <section id="skills" className="scroll-mt-16 py-24 sm:py-32">
       <Container>
-        <SectionHeading
-          eyebrow="Toolbox"
-          title="Skills"
-          description="A blend of enterprise low-code expertise and modern, AI-assisted software development."
-        />
+        <Reveal>
+          <SectionHeading
+            eyebrow="Toolbox"
+            title="Skills"
+            description="A blend of enterprise low-code expertise and modern, AI-assisted software development."
+          />
+        </Reveal>
 
         <div className="grid gap-6 sm:grid-cols-2">
-          {skillGroups.map(({ icon: Icon, title, skills }) => (
-            <div
+          {skillGroups.map(({ icon: Icon, title, skills }, i) => (
+            <Reveal
               key={title}
+              delay={i * 80}
               className="rounded-2xl border border-border bg-surface p-6 shadow-soft"
             >
               <div className="mb-4 flex items-center gap-3">
@@ -75,7 +79,7 @@ export function Skills() {
                   </li>
                 ))}
               </ul>
-            </div>
+            </Reveal>
           ))}
         </div>
       </Container>

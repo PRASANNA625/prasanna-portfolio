@@ -1,5 +1,6 @@
 import { Award } from "lucide-react";
 import { Container } from "@/components/ui/container";
+import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
 
 const stats = [
@@ -26,30 +27,34 @@ export function Achievements() {
   return (
     <section id="achievements" className="scroll-mt-16 py-24 sm:py-32">
       <Container>
-        <SectionHeading
-          eyebrow="Recognition"
-          title="Achievements"
-          description="Measurable impact and recognition earned across my Power Platform engagements."
-        />
+        <Reveal>
+          <SectionHeading
+            eyebrow="Recognition"
+            title="Achievements"
+            description="Measurable impact and recognition earned across my Power Platform engagements."
+          />
+        </Reveal>
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {stats.map(({ value, label }) => (
-            <div
+          {stats.map(({ value, label }, i) => (
+            <Reveal
               key={label}
+              delay={i * 80}
               className="rounded-2xl border border-border bg-surface p-6 shadow-soft"
             >
               <p className="text-4xl font-semibold tracking-tight text-primary">
                 {value}
               </p>
               <p className="mt-2 text-sm text-muted">{label}</p>
-            </div>
+            </Reveal>
           ))}
         </div>
 
         <div className="mt-6 grid gap-6 sm:grid-cols-2">
-          {awards.map(({ title, detail, org }) => (
-            <div
+          {awards.map(({ title, detail, org }, i) => (
+            <Reveal
               key={title}
+              delay={i * 80}
               className="flex items-start gap-4 rounded-2xl border border-border bg-surface p-6 shadow-soft"
             >
               <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
@@ -63,7 +68,7 @@ export function Achievements() {
                   {detail} · {org}
                 </p>
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </Container>

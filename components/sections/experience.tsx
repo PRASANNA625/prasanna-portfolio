@@ -1,5 +1,6 @@
 import { Award } from "lucide-react";
 import { Container } from "@/components/ui/container";
+import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { siteConfig } from "@/lib/site-config";
 
@@ -57,11 +58,13 @@ export function Experience() {
   return (
     <section id="experience" className="scroll-mt-16 py-24 sm:py-32">
       <Container>
-        <SectionHeading
-          eyebrow="Career"
-          title="Experience"
-          description={`${siteConfig.yearsOfExperience}+ years building enterprise automation and low-code solutions across Power Platform and SharePoint.`}
-        />
+        <Reveal>
+          <SectionHeading
+            eyebrow="Career"
+            title="Experience"
+            description={`${siteConfig.yearsOfExperience}+ years building enterprise automation and low-code solutions across Power Platform and SharePoint.`}
+          />
+        </Reveal>
 
         <div className="relative border-l border-border pl-8 sm:pl-10">
           {experience.map((item, i) => (
@@ -74,42 +77,47 @@ export function Experience() {
                 className="absolute -left-[7px] mt-1.5 h-3.5 w-3.5 rounded-full border-2 border-primary bg-background"
               />
 
-              <p className="mb-1 font-mono text-sm text-accent">
-                {item.period}
-              </p>
-              <h3 className="text-xl font-semibold tracking-tight">
-                {item.role}
-              </h3>
-              <p className="mt-1 text-base font-medium text-foreground">
-                {item.company}
-              </p>
-              {item.meta && (
-                <p className="mt-1 text-sm text-muted">{item.meta}</p>
-              )}
+              <Reveal>
+                <p className="mb-1 font-mono text-sm text-accent">
+                  {item.period}
+                </p>
+                <h3 className="text-xl font-semibold tracking-tight">
+                  {item.role}
+                </h3>
+                <p className="mt-1 text-base font-medium text-foreground">
+                  {item.company}
+                </p>
+                {item.meta && (
+                  <p className="mt-1 text-sm text-muted">{item.meta}</p>
+                )}
 
-              {item.highlights.length > 0 && (
-                <ul className="mt-4 space-y-2">
-                  {item.highlights.map((highlight) => (
-                    <li
-                      key={highlight}
-                      className="flex items-start gap-2.5 text-sm leading-relaxed text-muted sm:text-base"
-                    >
-                      <span
-                        aria-hidden="true"
-                        className="mt-2.5 h-1 w-1 shrink-0 rounded-full bg-muted"
-                      />
-                      {highlight}
-                    </li>
-                  ))}
-                </ul>
-              )}
+                {item.highlights.length > 0 && (
+                  <ul className="mt-4 space-y-2">
+                    {item.highlights.map((highlight) => (
+                      <li
+                        key={highlight}
+                        className="flex items-start gap-2.5 text-sm leading-relaxed text-muted sm:text-base"
+                      >
+                        <span
+                          aria-hidden="true"
+                          className="mt-2.5 h-1 w-1 shrink-0 rounded-full bg-muted"
+                        />
+                        {highlight}
+                      </li>
+                    ))}
+                  </ul>
+                )}
 
-              {item.award && (
-                <div className="mt-4 inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3 py-1.5 text-sm text-foreground shadow-soft">
-                  <Award className="h-4 w-4 text-accent" aria-hidden="true" />
-                  {item.award}
-                </div>
-              )}
+                {item.award && (
+                  <div className="mt-4 inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3 py-1.5 text-sm text-foreground shadow-soft">
+                    <Award
+                      className="h-4 w-4 text-accent"
+                      aria-hidden="true"
+                    />
+                    {item.award}
+                  </div>
+                )}
+              </Reveal>
             </div>
           ))}
         </div>

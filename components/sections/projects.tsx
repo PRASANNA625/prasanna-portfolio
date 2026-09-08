@@ -7,6 +7,7 @@ import {
   Workflow,
 } from "lucide-react";
 import { Container } from "@/components/ui/container";
+import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
 
 const projects = [
@@ -64,16 +65,19 @@ export function Projects() {
   return (
     <section id="projects" className="scroll-mt-16 py-24 sm:py-32">
       <Container>
-        <SectionHeading
-          eyebrow="Selected Work"
-          title="Projects"
-          description="A sample of enterprise Power Platform solutions delivered for global clients."
-        />
+        <Reveal>
+          <SectionHeading
+            eyebrow="Selected Work"
+            title="Projects"
+            description="A sample of enterprise Power Platform solutions delivered for global clients."
+          />
+        </Reveal>
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {projects.map(({ icon: Icon, title, client, description, tech }) => (
-            <div
+          {projects.map(({ icon: Icon, title, client, description, tech }, i) => (
+            <Reveal
               key={title}
+              delay={i * 80}
               className="flex flex-col rounded-2xl border border-border bg-surface p-6 shadow-soft"
             >
               <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
@@ -99,7 +103,7 @@ export function Projects() {
                   </li>
                 ))}
               </ul>
-            </div>
+            </Reveal>
           ))}
         </div>
       </Container>

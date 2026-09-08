@@ -7,6 +7,7 @@ import {
   TestTube2,
 } from "lucide-react";
 import { Container } from "@/components/ui/container";
+import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
 
 const workflow = [
@@ -23,7 +24,7 @@ export function AiDevelopment() {
     <section id="ai-development" className="scroll-mt-16 py-24 sm:py-32">
       <Container>
         <div className="grid gap-12 md:grid-cols-[1.3fr_1fr] md:gap-16">
-          <div>
+          <Reveal>
             <SectionHeading
               eyebrow="AI-Assisted Development"
               title="Building with Claude Code"
@@ -45,9 +46,12 @@ export function AiDevelopment() {
                 next.
               </p>
             </div>
-          </div>
+          </Reveal>
 
-          <div className="rounded-2xl border border-border bg-surface p-8 shadow-soft">
+          <Reveal
+            delay={150}
+            className="rounded-2xl border border-border bg-surface p-8 shadow-soft"
+          >
             <p className="text-sm font-medium text-foreground">
               How I use it
             </p>
@@ -65,7 +69,7 @@ export function AiDevelopment() {
                 </li>
               ))}
             </ul>
-          </div>
+          </Reveal>
         </div>
       </Container>
     </section>
