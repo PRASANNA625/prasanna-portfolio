@@ -13,6 +13,7 @@
   --primary-foreground: #ffffff;
   --accent: #7c3aed;
   --accent-2: #8b5cf6;
+  --accent-magenta: #c026d3;
   --muted: #6b7280;
   --shadow-soft: 0 4px 24px -4px rgb(0 0 0 / 0.08);
   --shadow-glow: 0 0 40px -8px rgb(99 102 241 / 0.35);
@@ -28,6 +29,7 @@
   --primary-foreground: #0a0a0f;
   --accent: #a78bfa;
   --accent-2: #8b5cf6;
+  --accent-magenta: #e879f9;
   --muted: #9ca3af;
   --shadow-soft: 0 4px 24px -4px rgb(0 0 0 / 0.5);
   --shadow-glow: 0 0 40px -8px rgb(129 140 248 / 0.35);
@@ -43,6 +45,7 @@
   --color-primary-foreground: var(--primary-foreground);
   --color-accent: var(--accent);
   --color-accent-2: var(--accent-2);
+  --color-accent-magenta: var(--accent-magenta);
   --color-muted: var(--muted);
   --shadow-soft: var(--shadow-soft);
   --shadow-glow: var(--shadow-glow);

@@ -19,7 +19,7 @@ export function Hero() {
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute bottom-0 left-1/3 h-72 w-72 animate-aurora-c rounded-full bg-accent-2/15 blur-[110px]"
+        className="pointer-events-none absolute bottom-0 left-1/3 h-72 w-72 animate-aurora-c rounded-full bg-accent-magenta/15 blur-[110px]"
       />
 
       <Container className="relative py-20">
@@ -30,12 +30,12 @@ export function Hero() {
 
         <h1 className="mb-4 max-w-3xl animate-fade-up text-5xl font-semibold tracking-tight [animation-delay:100ms] sm:text-6xl lg:text-7xl">
           Hi, I&apos;m{" "}
-          <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-primary via-accent to-accent-magenta bg-clip-text text-transparent">
             {siteConfig.name}
           </span>
         </h1>
 
-        <p className="mb-6 animate-fade-up font-mono text-lg text-accent [animation-delay:200ms] sm:text-2xl">
+        <p className="mb-6 animate-fade-up font-mono text-lg text-accent [animation-delay:200ms] sm:text-2xl dark:[text-shadow:0_0_20px_rgb(167_139_250_/_0.35)]">
           {siteConfig.title}
         </p>
 

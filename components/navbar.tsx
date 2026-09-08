@@ -41,7 +41,7 @@ export function Navbar() {
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-colors duration-300",
         scrolled
-          ? "border-b border-border bg-background/80 backdrop-blur-md shadow-soft"
+          ? "border-b border-border bg-background/80 backdrop-blur-md shadow-soft dark:shadow-[0_1px_24px_-6px_var(--primary)]"
           : "border-b border-transparent bg-background/40 backdrop-blur-md",
       )}
     >
@@ -51,7 +51,7 @@ export function Navbar() {
           className="rounded-md font-mono text-lg font-semibold tracking-tight focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
         >
           {siteConfig.name.split(" ")[0]}
-          <span className="text-primary">.</span>
+          <span className="text-primary dark:[text-shadow:0_0_10px_var(--primary)]">.</span>
         </a>
 
         <nav
@@ -62,7 +62,7 @@ export function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              className="text-sm text-muted transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-sm"
+              className="text-sm text-muted transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-sm dark:hover:[text-shadow:0_0_12px_var(--primary)]"
             >
               {link.label}
             </a>
@@ -106,7 +106,7 @@ export function Navbar() {
                 ref={i === 0 ? firstMobileLinkRef : undefined}
                 href={link.href}
                 onClick={() => setMenuOpen(false)}
-                className="rounded-lg px-3 py-3 text-base text-foreground transition-colors hover:bg-surface-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                className="rounded-lg px-3 py-3 text-base text-foreground transition-colors hover:bg-surface-hover hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
               >
                 {link.label}
               </a>

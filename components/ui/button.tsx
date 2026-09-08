@@ -13,10 +13,12 @@ const baseStyles =
   "inline-flex items-center justify-center gap-2 rounded-lg font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-50";
 
 const variantStyles: Record<Variant, string> = {
-  primary: "bg-primary text-primary-foreground hover:opacity-90 shadow-soft",
+  primary:
+    "bg-gradient-to-r from-primary to-accent text-primary-foreground shadow-soft transition-[filter,box-shadow] hover:brightness-110 hover:shadow-glow",
   secondary:
-    "bg-surface text-foreground border border-border hover:bg-surface-hover",
-  ghost: "text-foreground hover:bg-surface-hover",
+    "border border-primary/30 bg-surface/70 text-foreground backdrop-blur-sm transition-[border-color,background-color,box-shadow] hover:border-primary/60 hover:bg-surface-hover hover:shadow-glow",
+  ghost:
+    "text-foreground border border-transparent transition-[border-color,background-color,box-shadow] hover:border-primary/30 hover:bg-surface-hover hover:shadow-glow",
 };
 
 const sizeStyles: Record<Size, string> = {
