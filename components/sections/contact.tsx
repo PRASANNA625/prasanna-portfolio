@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
+import { LinkedinIcon } from "@/components/icons/linkedin-icon";
 import { siteConfig } from "@/lib/site-config";
 
 const contactMethods = [
@@ -11,18 +12,28 @@ const contactMethods = [
     label: "Email",
     value: siteConfig.email,
     href: `mailto:${siteConfig.email}`,
+    external: false,
   },
   {
     icon: Phone,
     label: "Phone",
     value: siteConfig.phone,
     href: `tel:${siteConfig.phone}`,
+    external: false,
+  },
+  {
+    icon: LinkedinIcon,
+    label: "LinkedIn",
+    value: "Prasanna B",
+    href: siteConfig.linkedinUrl,
+    external: true,
   },
   {
     icon: MapPin,
     label: "Location",
     value: siteConfig.location,
     href: undefined,
+    external: false,
   },
 ];
 
@@ -44,7 +55,7 @@ export function Contact() {
           className="mx-auto max-w-2xl rounded-2xl border border-border bg-surface p-8 shadow-soft sm:p-10"
         >
           <ul className="space-y-5">
-            {contactMethods.map(({ icon: Icon, label, value, href }) => (
+            {contactMethods.map(({ icon: Icon, label, value, href, external }) => (
               <li key={label} className="flex items-center gap-4">
                 <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
                   <Icon className="h-5 w-5" aria-hidden="true" />
@@ -54,6 +65,9 @@ export function Contact() {
                   {href ? (
                     <a
                       href={href}
+                      {...(external
+                        ? { target: "_blank", rel: "noopener noreferrer" }
+                        : {})}
                       className="rounded-sm text-base font-medium text-foreground transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                     >
                       {value}

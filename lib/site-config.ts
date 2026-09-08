@@ -10,6 +10,7 @@ export const siteConfig = {
   location: "Bangalore, India",
   email: "prasannab625@gmail.com",
   phone: "+91-8680947041",
+  linkedinUrl: "https://www.linkedin.com/in/prasanna-b-0869a7223/",
   resumeUrl: "/resume.pdf",
   careerStartDate,
   yearsOfExperience,
