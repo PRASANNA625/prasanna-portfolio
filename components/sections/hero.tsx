@@ -38,10 +38,11 @@ export function Hero() {
         <p className="mb-10 max-w-2xl animate-fade-up text-base leading-relaxed text-muted [animation-delay:300ms] sm:text-lg">
           I design and deliver enterprise automation and low-code solutions
           across Microsoft Power Platform — Power Apps, Power Automate,
-          SharePoint, and Power BI — backed by 5.5+ years of professional
-          experience. Alongside that, I&apos;m expanding into modern web and
-          mobile development, using AI-assisted tools like Claude Code to
-          build, debug, and ship faster.
+          SharePoint, and Power BI — backed by {siteConfig.yearsOfExperience}+
+          years of professional experience. Alongside that, I&apos;m
+          expanding into modern web and mobile development, using
+          AI-assisted tools like Claude Code to build, debug, and ship
+          faster.
         </p>
 
         <div className="flex animate-fade-up flex-wrap items-center gap-4 [animation-delay:400ms]">

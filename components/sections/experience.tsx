@@ -1,6 +1,7 @@
 import { Award } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
+import { siteConfig } from "@/lib/site-config";
 
 const experience = [
   {
@@ -59,7 +60,7 @@ export function Experience() {
         <SectionHeading
           eyebrow="Career"
           title="Experience"
-          description="5.5+ years building enterprise automation and low-code solutions across Power Platform and SharePoint."
+          description={`${siteConfig.yearsOfExperience}+ years building enterprise automation and low-code solutions across Power Platform and SharePoint.`}
         />
 
         <div className="relative border-l border-border pl-8 sm:pl-10">
