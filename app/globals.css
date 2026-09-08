@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+/* next-themes toggles a `.dark` class on <html>; tell Tailwind's `dark:` variant to key off that class instead of the OS media query. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --background: #fafafa;
+  --foreground: #0a0a0f;
+  --surface: #ffffff;
+  --surface-hover: #f4f4f6;
+  --border: #e4e4e8;
+  --primary: #4f46e5;
+  --primary-foreground: #ffffff;
+  --accent: #06b6d4;
+  --muted: #6b7280;
+  --shadow-soft: 0 4px 24px -4px rgb(0 0 0 / 0.08);
+  --shadow-glow: 0 0 40px -8px rgb(79 70 229 / 0.35);
+}
+
+.dark {
+  --background: #08080c;
+  --foreground: #e8e8ec;
+  --surface: #121218;
+  --surface-hover: #1a1a22;
+  --border: #26262f;
+  --primary: #818cf8;
+  --primary-foreground: #0a0a0f;
+  --accent: #22d3ee;
+  --muted: #9ca3af;
+  --shadow-soft: 0 4px 24px -4px rgb(0 0 0 / 0.5);
+  --shadow-glow: 0 0 40px -8px rgb(129 140 248 / 0.35);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-hover: var(--surface-hover);
+  --color-border: var(--border);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-accent: var(--accent);
+  --color-muted: var(--muted);
+  --shadow-soft: var(--shadow-soft);
+  --shadow-glow: var(--shadow-glow);
+
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+
+  /* Slightly larger, softer corner scale for a premium card feel. */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-2xl: 2rem;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
