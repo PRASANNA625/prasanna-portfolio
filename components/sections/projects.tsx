@@ -63,13 +63,17 @@ const projects = [
 
 export function Projects() {
   return (
-    <section id="projects" className="scroll-mt-16 py-24 sm:py-32">
+    <section
+      id="projects"
+      className="scroll-mt-16 pt-16 pb-24 sm:pt-20 sm:pb-32"
+    >
       <Container>
         <Reveal>
           <SectionHeading
             eyebrow="Selected Work"
             title="Projects"
             description="A sample of enterprise Power Platform solutions delivered for global clients."
+            className="mb-8"
           />
         </Reveal>
 
@@ -78,26 +82,26 @@ export function Projects() {
             <Reveal
               key={title}
               delay={i * 80}
-              className="flex h-full flex-col rounded-2xl border border-border bg-surface p-6 shadow-soft hover:-translate-y-1 hover:shadow-glow"
+              className="flex h-full flex-col rounded-2xl border border-border bg-surface px-6 py-5 shadow-soft hover:-translate-y-1 hover:shadow-glow"
             >
-              <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+              <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
                 <Icon className="h-5 w-5" aria-hidden="true" />
               </div>
 
-              <h3 className="text-lg font-semibold tracking-tight">
+              <h3 className="min-h-[3.5rem] text-lg font-semibold tracking-tight">
                 {title}
               </h3>
               <p className="mt-1 font-mono text-xs text-accent">{client}</p>
 
-              <p className="mt-3 text-sm leading-relaxed text-muted">
+              <p className="mt-2 text-sm leading-relaxed text-muted">
                 {description}
               </p>
 
-              <ul className="mt-auto flex flex-wrap gap-2 pt-5">
+              <ul className="mt-auto flex flex-wrap gap-2 pt-4">
                 {tech.map((item) => (
                   <li
                     key={item}
-                    className="rounded-full border border-border bg-background px-3 py-1 text-xs text-foreground"
+                    className="rounded-full border border-border bg-background px-3 py-1.5 text-xs text-foreground"
                   >
                     {item}
                   </li>
