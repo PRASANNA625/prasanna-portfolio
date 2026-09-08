@@ -78,7 +78,7 @@ export function Projects() {
             <Reveal
               key={title}
               delay={i * 80}
-              className="flex flex-col rounded-2xl border border-border bg-surface p-6 shadow-soft hover:-translate-y-1 hover:shadow-glow"
+              className="flex h-full flex-col rounded-2xl border border-border bg-surface p-6 shadow-soft hover:-translate-y-1 hover:shadow-glow"
             >
               <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
                 <Icon className="h-5 w-5" aria-hidden="true" />
@@ -93,7 +93,7 @@ export function Projects() {
                 {description}
               </p>
 
-              <ul className="mt-5 flex flex-wrap gap-2">
+              <ul className="mt-auto flex flex-wrap gap-2 pt-5">
                 {tech.map((item) => (
                   <li
                     key={item}
