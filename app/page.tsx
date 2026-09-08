@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
-import { ThemeToggle } from "@/components/theme-toggle";
 import { siteConfig } from "@/lib/site-config";
 
 const swatches = [
@@ -15,13 +14,6 @@ export default function Home() {
   return (
     <main className="flex flex-1 items-center">
       <Container className="py-24">
-        <div className="mb-16 flex items-center justify-between">
-          <span className="font-mono text-sm text-muted">
-            design-system.preview
-          </span>
-          <ThemeToggle />
-        </div>
-
         <p className="mb-4 font-mono text-sm text-accent">Foundation ready</p>
         <h1 className="mb-4 text-4xl font-semibold tracking-tight sm:text-6xl">
           {siteConfig.name}
