@@ -11,11 +11,15 @@ export function Hero() {
     >
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -top-32 -left-32 h-96 w-96 rounded-full bg-primary/25 blur-3xl"
+        className="pointer-events-none absolute -top-32 -left-32 h-96 w-96 animate-aurora-a rounded-full bg-primary/25 blur-[110px]"
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute top-1/3 -right-24 h-80 w-80 rounded-full bg-accent/20 blur-3xl"
+        className="pointer-events-none absolute top-1/3 -right-24 h-80 w-80 animate-aurora-b rounded-full bg-accent/20 blur-[110px]"
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute bottom-0 left-1/3 h-72 w-72 animate-aurora-c rounded-full bg-primary/15 blur-[110px]"
       />
 
       <Container className="relative py-20">
