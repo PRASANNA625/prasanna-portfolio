@@ -64,6 +64,7 @@
   --animate-aurora-a: aurora-drift-a 22s ease-in-out infinite;
   --animate-aurora-b: aurora-drift-b 26s ease-in-out infinite;
   --animate-aurora-c: aurora-drift-c 19s ease-in-out infinite;
+  --animate-float: float-badge 6s ease-in-out infinite;
 }
 
 @keyframes fade-up {
@@ -105,6 +106,17 @@
   }
   50% {
     transform: translate(5%, -7%) scale(1.1);
+  }
+}
+
+/* Slow, gentle vertical bob for the Hero's floating technology badges. */
+@keyframes float-badge {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
   }
 }
 
