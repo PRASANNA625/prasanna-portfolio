@@ -19,7 +19,7 @@ export function Hero() {
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute bottom-0 left-1/3 h-72 w-72 animate-aurora-c rounded-full bg-primary/15 blur-[110px]"
+        className="pointer-events-none absolute bottom-0 left-1/3 h-72 w-72 animate-aurora-c rounded-full bg-accent-2/15 blur-[110px]"
       />
 
       <Container className="relative py-20">
