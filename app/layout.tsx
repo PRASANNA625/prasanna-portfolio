@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Navbar } from "@/components/navbar";
+import { Footer } from "@/components/footer";
 import { siteConfig } from "@/lib/site-config";
 import "./globals.css";
 
@@ -18,6 +19,17 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: `${siteConfig.name} | ${siteConfig.title}`,
   description: siteConfig.description,
+  openGraph: {
+    title: `${siteConfig.name} | ${siteConfig.title}`,
+    description: siteConfig.description,
+    siteName: siteConfig.name,
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: `${siteConfig.name} | ${siteConfig.title}`,
+    description: siteConfig.description,
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -41,6 +53,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <div id="top" className="flex flex-1 flex-col pt-16">
             {children}
           </div>
+          <Footer />
         </ThemeProvider>
       </body>
     </html>
