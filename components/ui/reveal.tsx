@@ -9,8 +9,7 @@ interface RevealProps {
   className?: string;
 }
 
-const TRAVEL_PX = 90;
-const BLUR_PX = 6;
+const TRAVEL_PX = 28;
 
 // How far into the viewport an element must scroll before it's fully
 // revealed, expressed as fractions of viewport height measured from the top.
@@ -61,15 +60,14 @@ export function Reveal({ children, delay = 0, className }: RevealProps) {
   const style: CSSProperties = {
     transitionDelay: delay ? `${delay}ms` : undefined,
     opacity: progress,
-    transform: `translateY(${(1 - progress) * TRAVEL_PX}px) scale(${0.92 + progress * 0.08})`,
-    filter: `blur(${(1 - progress) * BLUR_PX}px)`,
+    transform: `translateY(${(1 - progress) * TRAVEL_PX}px)`,
   };
 
   return (
     <div
       ref={ref}
       style={style}
-      className="transition-[transform,opacity,filter] duration-150 ease-out will-change-transform"
+      className="transition-[transform,opacity] duration-150 ease-out will-change-transform"
     >
       <div className={cn(className)}>{children}</div>
     </div>
