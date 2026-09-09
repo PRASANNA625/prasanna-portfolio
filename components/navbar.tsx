@@ -50,7 +50,7 @@ export function Navbar() {
           href="#top"
           className="rounded-md font-mono text-lg font-semibold tracking-tight focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
         >
-          {siteConfig.name.split(" ")[0]}
+          {siteConfig.name}
           <span className="text-primary dark:[text-shadow:0_0_10px_var(--primary)]">.</span>
         </a>
 

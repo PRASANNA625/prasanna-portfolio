@@ -13,7 +13,7 @@ export function Footer() {
             href="#top"
             className="rounded-md font-mono text-base font-semibold tracking-tight focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
           >
-            {siteConfig.name.split(" ")[0]}
+            {siteConfig.name}
             <span className="text-primary">.</span>
           </a>
           <p className="mt-1 text-sm text-muted">
