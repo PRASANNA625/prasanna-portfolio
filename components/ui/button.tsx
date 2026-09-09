@@ -60,11 +60,16 @@ export function Button({
       href: string;
     };
     const isExternal = /^https?:\/\//.test(href);
+    // Next.js Link prefetches href as an app route by default. A downloadable
+    // static file (e.g. the resume PDF) isn't a route, so that prefetch 404s -
+    // harmless to the actual download, but a real console error worth avoiding.
+    const isDownload = rest.download !== undefined;
 
     return (
       <Link
         href={href}
         className={classes}
+        prefetch={isDownload ? false : undefined}
         {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
         {...rest}
       >
