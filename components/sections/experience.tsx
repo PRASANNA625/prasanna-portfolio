@@ -1,4 +1,7 @@
-import { Award } from "lucide-react";
+"use client";
+
+import { useState } from "react";
+import { Award, ChevronDown } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
@@ -55,6 +58,20 @@ const experience = [
 ];
 
 export function Experience() {
+  const [openIndexes, setOpenIndexes] = useState<Set<number>>(new Set([0]));
+
+  const toggle = (index: number) => {
+    setOpenIndexes((prev) => {
+      const next = new Set(prev);
+      if (next.has(index)) {
+        next.delete(index);
+      } else {
+        next.add(index);
+      }
+      return next;
+    });
+  };
+
   return (
     <section id="experience" className="scroll-mt-16 py-24 sm:py-32">
       <Container>
@@ -67,59 +84,98 @@ export function Experience() {
         </Reveal>
 
         <div className="relative border-l border-border pl-8 sm:pl-10">
-          {experience.map((item, i) => (
-            <div
-              key={`${item.company}-${item.period}`}
-              className={i === experience.length - 1 ? "" : "pb-12"}
-            >
-              <span
-                aria-hidden="true"
-                className="absolute -left-[7px] mt-1.5 h-3.5 w-3.5 rounded-full border-2 border-primary bg-background"
-              />
+          {experience.map((item, i) => {
+            const isOpen = openIndexes.has(i);
+            const hasDetails = item.highlights.length > 0 || Boolean(item.award);
+            const panelId = `experience-panel-${i}`;
 
-              <Reveal>
-                <p className="mb-1 font-mono text-sm text-accent">
-                  {item.period}
-                </p>
-                <h3 className="text-xl font-semibold tracking-tight">
-                  {item.role}
-                </h3>
-                <p className="mt-1 text-base font-medium text-foreground">
-                  {item.company}
-                </p>
-                {item.meta && (
-                  <p className="mt-1 text-sm text-muted">{item.meta}</p>
-                )}
+            return (
+              <div
+                key={`${item.company}-${item.period}`}
+                className={i === experience.length - 1 ? "" : "pb-12"}
+              >
+                <span
+                  aria-hidden="true"
+                  className="absolute -left-[7px] mt-1.5 h-3.5 w-3.5 rounded-full border-2 border-primary bg-background"
+                />
 
-                {item.highlights.length > 0 && (
-                  <ul className="mt-4 space-y-2">
-                    {item.highlights.map((highlight) => (
-                      <li
-                        key={highlight}
-                        className="flex items-start gap-2.5 text-sm leading-relaxed text-muted sm:text-base"
-                      >
-                        <span
-                          aria-hidden="true"
-                          className="mt-2.5 h-1 w-1 shrink-0 rounded-full bg-muted"
-                        />
-                        {highlight}
-                      </li>
-                    ))}
-                  </ul>
-                )}
+                <Reveal>
+                  <p className="mb-1 font-mono text-sm text-accent">
+                    {item.period}
+                  </p>
 
-                {item.award && (
-                  <div className="mt-4 inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3 py-1.5 text-sm text-foreground shadow-soft transition-shadow hover:shadow-glow">
-                    <Award
-                      className="h-4 w-4 text-accent"
-                      aria-hidden="true"
-                    />
-                    {item.award}
-                  </div>
-                )}
-              </Reveal>
-            </div>
-          ))}
+                  {hasDetails ? (
+                    <button
+                      type="button"
+                      onClick={() => toggle(i)}
+                      aria-expanded={isOpen}
+                      aria-controls={panelId}
+                      className="group -ml-1 flex items-center gap-2 rounded-md py-1 pl-1 pr-2 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                    >
+                      <h3 className="text-xl font-semibold tracking-tight">
+                        {item.role}
+                      </h3>
+                      <ChevronDown
+                        aria-hidden="true"
+                        className={`h-4 w-4 shrink-0 text-muted transition-transform duration-200 motion-reduce:transition-none ${
+                          isOpen ? "rotate-180" : ""
+                        }`}
+                      />
+                    </button>
+                  ) : (
+                    <h3 className="text-xl font-semibold tracking-tight">
+                      {item.role}
+                    </h3>
+                  )}
+
+                  <p className="mt-1 text-base font-medium text-foreground">
+                    {item.company}
+                  </p>
+                  {item.meta && (
+                    <p className="mt-1 text-sm text-muted">{item.meta}</p>
+                  )}
+
+                  {hasDetails && (
+                    <div
+                      id={panelId}
+                      className={`grid transition-[grid-template-rows] duration-300 ease-out motion-reduce:transition-none ${
+                        isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+                      }`}
+                    >
+                      <div className="overflow-hidden">
+                        {item.highlights.length > 0 && (
+                          <ul className="mt-4 space-y-2">
+                            {item.highlights.map((highlight) => (
+                              <li
+                                key={highlight}
+                                className="flex items-start gap-2.5 text-sm leading-relaxed text-muted sm:text-base"
+                              >
+                                <span
+                                  aria-hidden="true"
+                                  className="mt-2.5 h-1 w-1 shrink-0 rounded-full bg-muted"
+                                />
+                                {highlight}
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+
+                        {item.award && (
+                          <div className="mt-4 inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3 py-1.5 text-sm text-foreground shadow-soft transition-shadow hover:shadow-glow">
+                            <Award
+                              className="h-4 w-4 text-accent"
+                              aria-hidden="true"
+                            />
+                            {item.award}
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  )}
+                </Reveal>
+              </div>
+            );
+          })}
         </div>
       </Container>
     </section>

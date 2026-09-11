@@ -45,17 +45,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       >
         <div
           aria-hidden="true"
-          className="pointer-events-none fixed inset-0 -z-10 opacity-0 transition-opacity duration-500 dark:opacity-100"
-          style={{
-            backgroundImage: `
-              radial-gradient(ellipse 900px 600px at 12% -10%, rgb(129 140 248 / 0.22), transparent 60%),
-              radial-gradient(ellipse 800px 600px at 105% 15%, rgb(167 139 250 / 0.16), transparent 60%),
-              radial-gradient(ellipse 700px 500px at 30% 105%, rgb(232 121 249 / 0.10), transparent 60%),
-              linear-gradient(rgb(255 255 255 / 0.02) 1px, transparent 1px),
-              linear-gradient(90deg, rgb(255 255 255 / 0.02) 1px, transparent 1px)
-            `,
-            backgroundSize: "auto, auto, auto, 56px 56px, 56px 56px",
-          }}
+          className="bg-ambient pointer-events-none fixed inset-0 -z-10"
+        />
+        <div
+          aria-hidden="true"
+          className="bg-grain pointer-events-none fixed inset-0 -z-10"
         />
         <ThemeProvider
           attribute="class"
