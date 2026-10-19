@@ -18,6 +18,13 @@ const awards: {
   href?: string;
 }[] = [
   {
+    title: "AI Agent Builder Associate",
+    detail: "Oct 2026",
+    org: "Microsoft Certified (AB-620)",
+    icon: BadgeCheck,
+    href: "https://learn.microsoft.com/en-us/users/prasannabagavathiraja-7959/credentials/certification/ai-agent-builder-associate?tab=credentials-tab",
+  },
+  {
     title: "Intelligent Applications Builder Associate",
     detail: "Oct 2026",
     org: "Microsoft Certified (AB-410)",
@@ -46,7 +53,7 @@ export function Achievements() {
           <SectionHeading
             eyebrow="Recognition"
             title="Achievements"
-            description="Measurable impact, recognition, and certification earned across my Power Platform career."
+            description="Measurable impact, recognition, and certifications earned across my Power Platform career."
             className="mb-8"
           />
         </Reveal>
@@ -66,7 +73,7 @@ export function Achievements() {
           ))}
         </div>
 
-        <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-5 grid gap-4 sm:grid-cols-2">
           {awards.map(({ title, detail, org, icon: Icon, href }, i) => (
             <Reveal
               key={title}

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Menu, X } from "lucide-react";
+import { BadgeCheck, Menu, X } from "lucide-react";
 import { navLinks } from "@/lib/nav-links";
 import { siteConfig } from "@/lib/site-config";
 import { ThemeToggle } from "@/components/theme-toggle";
@@ -48,10 +48,16 @@ export function Navbar() {
       <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-6 sm:px-8 lg:px-10">
         <a
           href="#top"
-          className="rounded-md font-mono text-lg font-semibold tracking-tight focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+          className="inline-flex items-center gap-1.5 rounded-md font-mono text-lg font-semibold tracking-tight focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
         >
           {siteConfig.name}
-          <span className="text-primary dark:[text-shadow:0_0_10px_var(--primary)]">.</span>
+          <span title="Microsoft Certified" className="text-primary">
+            <BadgeCheck
+              className="h-5 w-5 dark:drop-shadow-[0_0_6px_var(--primary)]"
+              aria-hidden="true"
+            />
+            <span className="sr-only">, Microsoft Certified</span>
+          </span>
         </a>
 
         <nav
